@@ -1,9 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
-import { IProduct } from './models/product';
-import { ProductsServices } from './services/services.projects';
-import { Observable, tap } from 'rxjs';
-// import { products as data} from './data/products';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -11,26 +7,5 @@ import { Observable, tap } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent implements OnInit {
-  title = 'angular-learning_1'; 
-  // products: IProduct[] = data
-  // products: IProduct[] = []
-  products$: Observable<IProduct[]>
-  loading = false
-
-  constructor(private productsService: ProductsServices) {
-
-  }
-
-  ngOnInit(): void{
-    this.loading = true
-    this.products$ = this.productsService.getAll().pipe(
-      tap(() => this.loading = false )
-    )
-    // this.productsService.getAll().subscribe(products => {
-    //   // console.log(products)
-    //   this.products = products
-    //   this.loading = false
-    // })
-  }
+export class AppComponent {
 }
